@@ -14,4 +14,15 @@ or if you're Mr. Alexander Feng himself::
 
   git clone git@github.com:AlexanderFengFeng/personal.git
 
+Additional Installs
+-------------------
+
+Node.js because apparently we're writing a Discord bot::
+
+  https://nodejs.org/en/
+
+  npm install discord.io winston --save
+  npm install https://github.com/woor/discord.io/tarball/gateway_v6
+
+
 That's pretty much it my dude.

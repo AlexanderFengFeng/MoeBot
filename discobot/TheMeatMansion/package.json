@@ -1,0 +1,13 @@
+{
+  "name": "TheMeatMansion",
+  "version": "1.0.0",
+  "description": "TheMeatMansion Bot",
+  "main": "bot.js",
+  "author": "TheMeatMangler",
+  "dependencies": {
+    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+    "jquery": "^3.3.1",
+    "winston": "^3.0.0",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
