@@ -19,7 +19,6 @@ async def on_ready():
 
 @bot.command()
 async def steak(ctx):
-    #await ctx.send(embed=discord.Embed(title='Steak', description='https://media0.giphy.com/media/c11ISnPiRdis8/giphy.gif', color=0xb41615))
     await ctx.send('https://media0.giphy.com/media/c11ISnPiRdis8/giphy.gif')
 
 @bot.command()
@@ -31,7 +30,9 @@ async def meat(ctx, *args):
 
 @bot.command()
 async def info(ctx):
-    embed = discord.Embed(title="TheMeatMansion", description="The meatiest mansions around", color=0xb41615)
+    embed = discord.Embed(title="TheMeatMansion",
+                          description="The meatiest mansions around",
+                          color=0xb41615)
     
     # give info about you here
     embed.add_field(name="Author", value="TheMeatMangler")
@@ -45,12 +46,26 @@ bot.remove_command('help')
 
 @bot.command()
 async def help(ctx):
-    embed = discord.Embed(title="TheMeatMansion", description="The meatiest mansion around. List of commands are:", color=0xb41615)
+    embed = discord.Embed(title="TheMeatMansion",
+                          description="The meatiest mansion around. "\
+                                      "List of commands are:",
+                          color=0xb41615)
 
-    embed.add_field(name="!steak", value="Gives a juicy steak gif", inline=False)
-    embed.add_field(name="!meat", value="Gives list of meats and associated cuts", inline=False)
-    embed.add_field(name="!info", value="Gives a little info about the bot", inline=False)
-    embed.add_field(name="!help", value="Gives this message", inline=False)
+    embed.add_field(name="!steak",
+                    value="Gives a juicy steak gif",
+                    inline=False)
+
+    embed.add_field(name="!meat",
+                    value="Gives list of meats and associated cuts",
+                    inline=False)
+
+    embed.add_field(name="!info",
+                    value="Gives a little info about the bot",
+                    inline=False)
+
+    embed.add_field(name="!help",
+                    value="Gives this message",
+                    inline=False)
 
     await ctx.send(embed=embed)
 
