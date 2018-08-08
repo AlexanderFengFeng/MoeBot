@@ -17,12 +17,8 @@ or if you're Mr. Alexander Feng himself::
 Additional Installs
 -------------------
 
-Node.js because apparently we're writing a Discord bot::
+Discord bot instructions::
 
-  https://nodejs.org/en/
-
-  npm install discord.io winston --save
-  npm install https://github.com/woor/discord.io/tarball/gateway_v6
-
+  https://boostlog.io/@junp1234/how-to-write-a-discord-bot-in-python-5a8e73aca7e5b7008ae1da8b
 
 That's pretty much it my dude.
