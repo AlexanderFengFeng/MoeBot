@@ -48,7 +48,7 @@
     },
     {
       "name": "fish",
-      "types": [
+      "cuts": [
         "tuna",
         "salmon",
         "mackerel",
@@ -58,7 +58,7 @@
     },
     {
       "name": "shellfish",
-      "types": [
+      "cuts": [
         "shrimp",
         "clam",
         "lobster",
