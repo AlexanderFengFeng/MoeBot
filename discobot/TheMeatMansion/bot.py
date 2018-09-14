@@ -1,14 +1,12 @@
 import discord
 import json
-import functions as func
+from functions import MeatBot 
 from discord.ext import commands
 
 with open('./auth.json', 'r') as f:
     auth = json.load(f)
-with open('./data/meat.json', 'r') as f:
-    data = json.load(f)
-
 bot = commands.Bot(command_prefix='!')
+meatbot = MeatBot()
 
 @bot.event
 async def on_ready():
@@ -24,14 +22,14 @@ async def steak(ctx):
 @bot.command()
 async def meat(ctx, *args):
     if len(args) == 0:
-        await ctx.send(embed=func.meat_list())
+        await ctx.send(embed=meatbot.meat_list())
     else:
-        await ctx.send(embed=func.meat_cuts(args[0]))
+        await ctx.send(embed=meatbot.meat_cuts(args[0]))
 
 @bot.command()
 async def info(ctx):
     embed = discord.Embed(title="TheMeatMansion",
-                          description="The meatiest mansions around",
+                          description="The meatiest mansion around",
                           color=0xb41615)
     
     # give info about you here
