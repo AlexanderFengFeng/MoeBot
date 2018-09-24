@@ -49,30 +49,41 @@ class MoeBot(object):
 
         await ctx.send(embed=embed)
 
-    @bot.command()
-    async def anime(ctx, *args):
-        if not args:
-            embed = discord.Embed(description="Try !anime seasonal",
-                                  color=0xffb6c1)
-            embed = discord.Embed(description = 'https://myanimelist.net/anime/37497/Irozuku_Sekai_no_Ashita_kara',
-                    color = 0xffb6c1)
-            embed.set_thumbnail(url='https://myanimelist.cdn-dena.com/images/anime/1424/93855.jpg?s=4c08edcdff5521d159b0fda21e80efd3')
-        else:
-            if args[1] == 'seasonal':
-                embed = self.anime.seasonal(0)
-
-        await ctx.send(embed=embed)
+#    @bot.command()
+#    async def anime(ctx, *args):
+#        if not args:
+#            embed = discord.Embed(description="Try !anime seasonal",
+#                                  color=0xffb6c1)
+#            embed = discord.Embed(description = 'https://myanimelist.net/anime/37497/Irozuku_Sekai_no_Ashita_kara',
+#                    color = 0xffb6c1)
+#            embed.set_thumbnail(url='https://myanimelist.cdn-dena.com/images/anime/1424/93855.jpg?s=4c08edcdff5521d159b0fda21e80efd3')
+#        else:
+#            if args[1] == 'seasonal':
+#                embed = self.anime.seasonal(0)
+#
+#        await ctx.send(embed=embed)
 
     @bot.command()
     async def fortnite(ctx, *args):
         if not args:
             embed = discord.Embed(description="Fortnite functions",
                                   color=fortnite.color)
-        else:
+        elif args[0] == 'store':
             embed = fortnite.store()
+        #elif args[0] == 'items':
+        #    if len(args) > 1:
+        #        embed = fortnite.item(args[1:])
+        #    else:
+        #        embed = fortnite.item()
+        elif args[0] == 'stats':
+            embed = fortnite.stats(args[1:])
         await ctx.send(embed=embed)
 
-
+    @bot.command()
+    async def yeet(ctx):
+        embed = discord.Embed(title="*Y E E T*", color=0xff8c00)
+        embed.set_image(url='https://media1.tenor.com/images/202045f7022731b513a4a836744d9765/tenor.gif')
+        await ctx.send(embed=embed)
 
 if __name__ == "__main__": 
     MoeBot = MoeBot()
