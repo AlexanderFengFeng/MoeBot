@@ -27,14 +27,27 @@ class MoeBot(object):
                               description="Work in progress",
                               color=0xb41615)
 
-        embed.add_field(name="!info",
+        embed.add_field(name="!m info",
                         value="Gives a little info about the bot")
 
-        embed.add_field(name="!help",
+        embed.add_field(name="!m help",
                         value="Gives this message")
 
-        embed.add_field(name="!anime",
-                        value="Learn about awesome animes")
+        #embed.add_field(name="!anime",
+        #                value="Learn about awesome animes")
+
+        embed.add_field(name="!m fn store",
+                        value="Gives current Fortnite store info")
+
+        embed.add_field(name="!m fn item {item name}",
+                        value="Gives info for an item in Fortnite")
+
+        embed.add_field(name="!m fn stats {epic username}",
+                        value="Gives stats for a PC player in Fortnite")
+
+        embed.add_field(name="!m fn challenges",
+                        value="Gives info on battle pass challenges" +\
+                              " for the current week")
 
         await ctx.send(embed=embed)
 
@@ -64,19 +77,21 @@ class MoeBot(object):
 #        await ctx.send(embed=embed)
 
     @bot.command()
-    async def fortnite(ctx, *args):
+    async def fn(ctx, *args):
         if not args:
             embed = discord.Embed(description="Fortnite functions",
                                   color=fortnite.color)
         elif args[0] == 'store':
             embed = fortnite.store()
-        #elif args[0] == 'items':
-        #    if len(args) > 1:
-        #        embed = fortnite.item(args[1:])
-        #    else:
-        #        embed = fortnite.item()
+        elif args[0] == 'item':
+            embed = fortnite.item(args[1:])
         elif args[0] == 'stats':
             embed = fortnite.stats(args[1:])
+        elif args[0] == 'challenges':
+            embed = fortnite.challenges()
+        else:
+            embed = discord.Embed(description='Command failed',
+                                  color=fortnite.color)
         await ctx.send(embed=embed)
 
     @bot.command()
