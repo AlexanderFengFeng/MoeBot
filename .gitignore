@@ -1,1 +1,4 @@
 *auth.json
+Pipfile*
+.swp
+__pycache__/
