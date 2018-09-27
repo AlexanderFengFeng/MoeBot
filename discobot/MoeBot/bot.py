@@ -11,7 +11,7 @@ fortnite = FortniteHandler()
 
 class MoeBot(object):
     def __init__(self):
-        with open('./auth.json', 'r') as f:
+        with open('.auth.json', 'r') as f:
             self._token = json.load(f)['token']
 
     @bot.event

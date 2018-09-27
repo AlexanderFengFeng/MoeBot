@@ -6,7 +6,7 @@ from media.emojis.emojis import EmojiHandler
 
 class FortniteHandler(object):
     def __init__(self):
-        with open('./auth.json', 'r') as f:
+        with open('.auth.json', 'r') as f:
             data = json.load(f)
             self._trn_key = data['TRN-API-key']
             self._fnbr_key = data['fnbr-API-key']
