@@ -222,10 +222,12 @@ class FortniteHandler(object):
         amount = challenge['questsTotal']
         reward = challenge['rewardName']
         emoji = self.emojis.get_emoji_post('fn_bp_point')
-        if 'Search' in name and amount == '1':
+        if amount == '1' and 'Stage 1' in name:
+            value = 'Reward: 5 or 10%s across multiple stages' % emoji
+        elif amount == '1':
             value = 'Reward: %s%s' % (reward, emoji)
         elif 'Stage 1' in name:
-            value = 'Amount: %s\nReward: 10%s across multiple stages'\
+            value = 'Amount: %s\nReward: 5 or 10%s across multiple stages'\
                         % (amount, emoji)
         else:
             value = 'Amount: %s\nReward: %s%s' % (amount, reward, emoji)
