@@ -1,28 +1,32 @@
 import discord
 import json
-from discord.ext import commands
-from handlers.anime import AnimeHandler
 from fortnite import FortniteHandler
 
-bot = commands.Bot(command_prefix='!m ')
-bot.remove_command('help')
-anime = AnimeHandler()
+client = discord.Client()
+
 fortnite = FortniteHandler()
 
-class MoeBot(object):
-    def __init__(self):
-        with open('.auth.json', 'r') as f:
-            self._token = json.load(f)['token']
+with open('.auth.json', 'r') as f:
+    _token = json.load(f)['token']
 
-    @bot.event
-    async def on_ready():
-        print('Logged in as')
-        print(bot.user.name)
-        print(bot.user.id)
-        print('------')
+@client.event
+async def on_ready():
+    print('Logged in as')
+    print(client.user.name)
+    print(client.user.id)
+    print('------')
 
-    @bot.command()
-    async def help(ctx):
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+    
+    args = message.content.split()
+
+    if args[0] != '!m' or len(args) <= 1:
+        return
+
+    if args[1] == 'help':
         embed = discord.Embed(title="MoeBot",
                               description="Work in progress",
                               color=0xb41615)
@@ -32,9 +36,6 @@ class MoeBot(object):
 
         embed.add_field(name="!m help",
                         value="Gives this message")
-
-        #embed.add_field(name="!anime",
-        #                value="Learn about awesome animes")
 
         embed.add_field(name="!m fn store",
                         value="Gives current Fortnite store info")
@@ -48,58 +49,35 @@ class MoeBot(object):
         embed.add_field(name="!m fn challenges",
                         value="Gives info on battle pass challenges" +\
                               " for the current week")
-
-        await ctx.send(embed=embed)
-
-    @bot.command()
-    async def info(ctx):
-        embed = discord.Embed(title="TheMeatMansion",
-                              description="The meatiest mansion around",
-                              color=0xb41615)
-        
+        await client.send_message(message.channel, embed=embed)
+    
+    elif args[1] == 'info':
+        embed = discord.Embed(title="TheMoeBot",
+                          description="~Uguuuu~",
+                          color=0xb41615)
         embed.add_field(name="Author", value="TheMeatMangler")
-        embed.add_field(name="Server count", value=f"{len(bot.guilds)}")
+        await client.send_message(message.channel, embed=embed)
 
-        await ctx.send(embed=embed)
-
-#    @bot.command()
-#    async def anime(ctx, *args):
-#        if not args:
-#            embed = discord.Embed(description="Try !anime seasonal",
-#                                  color=0xffb6c1)
-#            embed = discord.Embed(description = 'https://myanimelist.net/anime/37497/Irozuku_Sekai_no_Ashita_kara',
-#                    color = 0xffb6c1)
-#            embed.set_thumbnail(url='https://myanimelist.cdn-dena.com/images/anime/1424/93855.jpg?s=4c08edcdff5521d159b0fda21e80efd3')
-#        else:
-#            if args[1] == 'seasonal':
-#                embed = self.anime.seasonal(0)
-#
-#        await ctx.send(embed=embed)
-
-    @bot.command()
-    async def fn(ctx, *args):
-        if not args:
+    elif args[1] == 'fn':
+        if len(args) <= 2:
             embed = discord.Embed(description="Fortnite functions",
-                                  color=fortnite.color)
-        elif args[0] == 'store':
+                              color=fortnite.color)
+        elif args[2] == 'store':
             embed = fortnite.store()
-        elif args[0] == 'item':
-            embed = fortnite.item(args[1:])
-        elif args[0] == 'stats':
-            embed = fortnite.stats(args[1:])
-        elif args[0] == 'challenges':
+        elif args[2] == 'item':
+            embed = fortnite.item(args[3:])
+        elif args[2] == 'stats':
+            embed = fortnite.stats(args[3:])
+        elif args[2] == 'challenges':
             embed = fortnite.challenges()
         else:
-            embed = discord.Embed(description='Command failed',
+            embed = discord.Embed(description='Command failed. Try !m help.',
                                   color=fortnite.color)
-        await ctx.send(embed=embed)
+        await client.send_message(message.channel, embed=embed)
 
-    @bot.command()
-    async def yeet(ctx):
+    elif args[1] == 'yeet':
         embed = discord.Embed(title="*Y E E T*", color=0xff8c00)
         embed.set_image(url='https://media1.tenor.com/images/202045f7022731b513a4a836744d9765/tenor.gif')
-        await ctx.send(embed=embed)
+        await client.send_message(message.channel, embed=embed)
 
-if __name__ == "__main__": 
-    MoeBot = MoeBot()
-    bot.run(MoeBot._token)
+client.run(_token)
