@@ -1,18 +1,18 @@
-Alexander Feng's Personal Projects
+MoeBot
 ==================================
 
-Hi, I'm Alex and I'm a newb at all of this stuff. This is where I'll be keeping my personal projects.
+Hi, I'm Alex and this is my personal Discord bot with functions I designed to be of use for me and my friends.
 
 Installation Instructions
 -------------------------
 
 Clone it my dude::
 
-  git clone https://github.com/AlexanderFengFeng/personal.git
+  git clone https://github.com/AlexanderFengFeng/MoeBot.git
 
 or if you're Mr. Alexander Feng himself::
 
-  git clone git@github.com:AlexanderFengFeng/personal.git
+  git clone git@github.com:AlexanderFengFeng/MoeBot.git
 
 Additional Installs
 -------------------
