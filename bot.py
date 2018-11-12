@@ -55,7 +55,7 @@ async def on_message(message):
         embed = discord.Embed(title="TheMoeBot",
                           description="~Uguuuu~",
                           color=0xb41615)
-        embed.add_field(name="Author", value="TheMeatMangler")
+        embed.add_field(name="Author", value="AlexanderFengFeng")
         await client.send_message(message.channel, embed=embed)
 
     elif args[1] == 'fn':
