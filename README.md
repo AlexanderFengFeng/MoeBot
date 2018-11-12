@@ -22,6 +22,8 @@ That's pretty much it my dude.
 
 ## Usage and functions
 
+Since the bot is primarily for me and my friends, most of its functions are specific to the popular game, Fortnite. The functions pull data from an API (www.fnbr.co or www.fortnitetracker.com) and presents it to the user in a readable format.
+
 ### Commands
 
 `!m info` - Gets general info on the bot.
