@@ -10,7 +10,7 @@ Clone it my dude::
 
 or if you're Mr. Alexander Feng himself::
 
-  git clone git@github.com:AlexanderFengFeng/MoeBot.git
+  `git clone git@github.com:AlexanderFengFeng/MoeBot.git`
 
 ## Additional Instructions
 
@@ -20,3 +20,14 @@ Discord bot instructions::
 
 That's pretty much it my dude.
 
+## Usage and functions
+
+### Commands
+
+`!m info`: Gets general info on the bot
+`!m help`: Displays commands the bot takes
+`!m fn store`: Displays the current Fortnite store
+`!m fn item {itemname}`: Displays the queried item along with its price
+`!m fn stats {PC_playername}`: Displays stats for a PC player on Fortnite
+`!m fn challenges`: Displays info on the current week of Fortnite Battle Pass challenges
+`!m yeet`: YEET
